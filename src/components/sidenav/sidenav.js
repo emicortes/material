@@ -366,7 +366,7 @@ function SidenavDirective($mdMedia, $mdUtil, $mdConstant, $mdTheming, $mdInterac
      */
     function updateIsOpen(isOpen) {
       // Support deprecated md-sidenav-focus attribute as fallback
-      var focusEl = attrs.dontFocus ? undefined : ($mdUtil.findFocusTarget(element) ||
+      var focusEl = attr.dontFocus ? undefined : ($mdUtil.findFocusTarget(element) ||
         $mdUtil.findFocusTarget(element,'[md-sidenav-focus]') || element);
       var parent = element.parent();
       var restorePositioning;
