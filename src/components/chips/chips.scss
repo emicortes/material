@@ -70,7 +70,7 @@ $contact-chip-name-width: rem(12) !default;
 
   &.md-removable {
 
-    md-chip {
+    md-chip:not(.md-cant-remove) {
       @include rtl-prop(padding-right, padding-left, $chip-remove-padding-right, 0);
 
       .md-chip-content {

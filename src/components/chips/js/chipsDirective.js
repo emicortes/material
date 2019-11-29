@@ -222,7 +222,7 @@
           class="md-chips">\
         <md-chip ng-repeat="$chip in $mdChipsCtrl.items"\
             index="{{$index}}" \
-            ng-class="{\'md-focused\': $mdChipsCtrl.selectedChip == $index, \'md-readonly\': !$mdChipsCtrl.ngModelCtrl || $mdChipsCtrl.readonly}">\
+            ng-class="{\'md-cant-remove\': !$mdChipsCtrl.isRemovable($chip), \'md-focused\': $mdChipsCtrl.selectedChip == $index, \'md-readonly\': !$mdChipsCtrl.ngModelCtrl || $mdChipsCtrl.readonly}">\
           <div class="md-chip-content"\
               tabindex="{{$mdChipsCtrl.ariaTabIndex === $index ? 0 : -1}}"\
               id="{{$mdChipsCtrl.contentIdFor($index)}}"\
@@ -234,7 +234,7 @@
               aria-label="{{$mdChipsCtrl._isChipObject($chip) ? \'\' : $chip + \'. \'}}{{$mdChipsCtrl.isRemovable() ? \'\' + $mdChipsCtrl.deleteHint : \'\'}}" \
               ng-focus="!$mdChipsCtrl.readonly && $mdChipsCtrl.selectChip($index)"\
               md-chip-transclude="$mdChipsCtrl.chipContentsTemplate"></div>\
-          <div ng-if="$mdChipsCtrl.isRemovable()"\
+          <div ng-if="$mdChipsCtrl.isRemovable($chip)"\
                class="md-chip-remove-container"\
                tabindex="-1"\
                md-chip-transclude="$mdChipsCtrl.chipRemoveTemplate"></div>\
@@ -301,6 +301,7 @@
         onAppend: '&?mdOnAppend',
         onAdd: '&?mdOnAdd',
         onRemove: '&?mdOnRemove',
+        canRemove: '&?mdCanRemove',
         addedMessage: '@?mdAddedMessage',
         removedMessage: '@?mdRemovedMessage',
         onSelect: '&?mdOnSelect',

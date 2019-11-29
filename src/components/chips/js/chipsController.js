@@ -425,10 +425,15 @@ MdChipsCtrl.prototype._isChipObject = function(chip) {
 /**
  * @returns {boolean} true if chips can be removed, false otherwise.
  */
-MdChipsCtrl.prototype.isRemovable = function() {
+MdChipsCtrl.prototype.isRemovable = function($chip) {
   // Return false if we have static chips
   if (!this.ngModelCtrl) {
     return false;
+  }
+
+  // return false if $chip is not removable
+  if($chip && angular.isDefined(this.canRemove)){
+    return !!this.canRemove({$chip:$chip});
   }
 
   return this.readonly ? this.removable :
@@ -704,6 +709,9 @@ MdChipsCtrl.prototype.updateNgModel = function(skipValidation) {
  * @param {Event=} event optionally passed to the onRemove callback
  */
 MdChipsCtrl.prototype.removeChip = function(index, event) {
+  if(angular.isFunction(this.canRemove) && this.canRemove({$chip: this.items[index]}) === false)
+      return;
+
   var removed = this.items.splice(index, 1);
 
   this.updateNgModel();
