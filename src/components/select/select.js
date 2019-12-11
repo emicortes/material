@@ -1758,7 +1758,7 @@ function SelectProvider($$interimElementProvider) {
             left: Math.floor(clamp(bounds.left, left, bounds.right - containerRect.width)),
             top: Math.floor(clamp(bounds.top, top, bounds.bottom - containerRect.height)),
             'min-width': minWidth,
-            'font-size': fontSize
+            // 'font-size': fontSize
           }
         },
         dropDown: {
