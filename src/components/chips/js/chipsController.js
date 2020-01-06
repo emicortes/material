@@ -432,7 +432,7 @@ MdChipsCtrl.prototype.isRemovable = function($chip) {
   }
 
   // return false if $chip is not removable
-  if($chip && angular.isDefined(this.canRemove)){
+  if (this.useCanRemove && $chip && angular.isDefined(this.canRemove)){
     return !!this.canRemove({$chip:$chip});
   }
 
@@ -631,6 +631,17 @@ MdChipsCtrl.prototype.useOnSelectExpression = function() {
 };
 
 /**
+ * Sets whether to use the can-remove expression. This expression is
+ * bound to scope and controller in {@code MdChipsDirective} as
+ * {@code onSelect}. Due to the nature of directive scope bindings, the
+ * controller cannot know on its own/from the scope whether an expression was
+ * actually provided.
+ */
+MdChipsCtrl.prototype.useCanRemoveExpression = function () {
+  this.useCanRemove = true;
+};
+
+/**
  * Gets the input buffer. The input buffer can be the model bound to the
  * default input item {@code this.chipBuffer}, the {@code selectedItem}
  * model of an {@code md-autocomplete}, or, through some magic, the model
@@ -709,7 +720,7 @@ MdChipsCtrl.prototype.updateNgModel = function(skipValidation) {
  * @param {Event=} event optionally passed to the onRemove callback
  */
 MdChipsCtrl.prototype.removeChip = function(index, event) {
-  if(angular.isFunction(this.canRemove) && this.canRemove({$chip: this.items[index]}) === false)
+  if (this.useCanRemove && angular.isFunction(this.canRemove) && this.canRemove({$chip: this.items[index]}) === false)
       return;
 
   var removed = this.items.splice(index, 1);

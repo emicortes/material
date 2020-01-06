@@ -222,7 +222,7 @@
           class="md-chips">\
         <md-chip ng-repeat="$chip in $mdChipsCtrl.items"\
             index="{{$index}}" \
-            ng-class="{\'md-cant-remove\': !$mdChipsCtrl.isRemovable($chip), \'md-focused\': $mdChipsCtrl.selectedChip == $index, \'md-readonly\': !$mdChipsCtrl.ngModelCtrl || $mdChipsCtrl.readonly}">\
+            ng-class="{\'md-cant-remove\': $mdChipsCtrl.useCanRemove && !$mdChipsCtrl.isRemovable($chip), \'md-focused\': $mdChipsCtrl.selectedChip == $index, \'md-readonly\': !$mdChipsCtrl.ngModelCtrl || $mdChipsCtrl.readonly}">\
           <div class="md-chip-content"\
               tabindex="{{$mdChipsCtrl.ariaTabIndex === $index ? 0 : -1}}"\
               id="{{$mdChipsCtrl.contentIdFor($index)}}"\
@@ -431,6 +431,10 @@
           // If an `md-on-remove` attribute was set, tell the controller to use the expression
           // when removing chips.
           if (attrs.mdOnRemove) mdChipsCtrl.useOnRemoveExpression();
+
+          // If an `md-can-remove` attribute was set, tell the controller to use the expression
+          // when removing chips.
+          if (attrs.mdCanRemove) mdChipsCtrl.useCanRemoveExpression();
 
           // If an `md-on-select` attribute was set, tell the controller to use the expression
           // when selecting chips.
