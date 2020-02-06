@@ -15,7 +15,7 @@
 $baseline-grid:            8px !default;
 $layout-gutter-width:      ($baseline-grid * 2) !default;
 
-$layout-breakpoint-xs:     600px !default;
+$layout-breakpoint-xs:     601px !default;
 $layout-breakpoint-sm:     960px !default;
 $layout-breakpoint-md:     1280px !default;
 $layout-breakpoint-lg:     1920px !default;
@@ -408,13 +408,13 @@ $layout-breakpoint-lg:     1920px !default;
 
 
 /**
- * `hide-gt-sm show-gt-lg` should hide from 600px to 1200px
+ * `hide-gt-sm show-gt-lg` should hide from 601px to 1200px
  * `show-md hide-gt-sm` should show from 0px to 960px and hide at >960px
  * `hide-gt-md show-gt-sm` should show everywhere (show overrides hide)`
  *
  *  hide means hide everywhere
  *  Sizes:
- *         $layout-breakpoint-xs:     600px !default;
+ *         $layout-breakpoint-xs:     601px !default;
  *         $layout-breakpoint-sm:     960px !default;
  *         $layout-breakpoint-md:     1280px !default;
  *         $layout-breakpoint-lg:     1920px !default;

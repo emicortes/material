@@ -123,8 +123,8 @@ function MdConstantFactory() {
      */
     MEDIA: {
       'xs'        : '(max-width: 599px)'                         ,
-      'gt-xs'     : '(min-width: 600px)'                         ,
-      'sm'        : '(min-width: 600px) and (max-width: 959px)'  ,
+      'gt-xs'     : '(min-width: 601px)'                         ,
+      'sm'        : '(min-width: 601px) and (max-width: 959px)'  ,
       'gt-sm'     : '(min-width: 960px)'                         ,
       'md'        : '(min-width: 960px) and (max-width: 1279px)' ,
       'gt-md'     : '(min-width: 1280px)'                        ,

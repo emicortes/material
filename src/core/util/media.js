@@ -27,11 +27,11 @@ angular.module('material.core')
  *    </tr>
  *    <tr>
  *      <td>gt-xs</td>
- *      <td>(min-width: 600px)</td>
+ *      <td>(min-width: 601px)</td>
  *    </tr>
  *    <tr>
  *      <td>sm</td>
- *      <td>(min-width: 600px) and (max-width: 959px)</td>
+ *      <td>(min-width: 601px) and (max-width: 959px)</td>
  *    </tr>
  *    <tr>
  *      <td>gt-sm</td>
