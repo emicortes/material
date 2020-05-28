@@ -1206,8 +1206,8 @@ function MdDialogProvider($$interimElementProvider) {
       var parentTop = Math.abs(options.parent[0].getBoundingClientRect().top);
 
       container.css({
-        top: (isFixed ? parentTop : 0) + 'px',
-        height: height ? height + 'px' : '100%'
+        top: 0,
+        height: '100%'
       });
 
       return function() {
