@@ -116,6 +116,7 @@ function mdRadioGroupDirective($mdUtil, $mdConstant, $mdTheming, $timeout) {
           setFocus();
           break;
 
+        case $mdConstant.KEY_CODE.SPACE:
         case $mdConstant.KEY_CODE.RIGHT_ARROW:
         case $mdConstant.KEY_CODE.DOWN_ARROW:
           ev.preventDefault();
